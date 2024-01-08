@@ -4,11 +4,15 @@ const path = require('path');
 module.exports = {
     mode: 'development',
     entry: {
-        main: path.resolve(__dirname, './js/dashboard_main.js')
+        header: "./header/header.js",
+        body: "./body/body.js",
+        footer: "./footer/footer.js"
+        //main: ["./header/header.js", "./body/body.js", "./footer/footer.js"]
     },
     output: {
-        filename: 'bundle.js',
-        path: path.resolve(__dirname, 'public')
+        filename: 'header.bundle.js',
+        filename: 'body.bundle.js',
+        filename: 'footer.bundle.js'
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -28,7 +32,6 @@ module.exports = {
         ]
     },
     devServer: {
-        contentBase: "./public",
         open: true,
         port: 8564
     }
